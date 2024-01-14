@@ -15,12 +15,14 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { ListItemText } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import DeleteIcon from "@mui/icons-material/Delete";
+import SearchBar from "./SearchBar";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 
 const drawerWidth = 240;
 
@@ -118,11 +120,19 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap component="div">
+          <RestaurantMenuIcon />
+          <Typography
+            variant="h5"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
             Groceries
           </Typography>
+          <SearchBar />
         </Toolbar>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -160,7 +170,7 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {["Trash"].map((text, index) => (
+          {["To Buy", "Trash"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -176,7 +186,7 @@ export default function MiniDrawer() {
                     justifyContent: "center",
                   }}
                 >
-                  {index % 2 === 0 ? <DeleteIcon /> : <MailIcon />}
+                  {index % 2 === 0 ? <ListAltIcon /> : <DeleteIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
