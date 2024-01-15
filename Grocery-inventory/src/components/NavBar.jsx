@@ -16,13 +16,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { ListItemText } from "@mui/material";
-import MailIcon from "@mui/icons-material/Mail";
 import FoodBankIcon from "@mui/icons-material/FoodBank";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchBar from "./SearchBar";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+import Home from "./Home";
 
 const drawerWidth = 240;
 
@@ -194,7 +194,10 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}></Box>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <DrawerHeader />
+        <Home />
+      </Box>
     </Box>
   );
 }
